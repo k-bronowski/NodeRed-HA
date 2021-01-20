@@ -1,1 +1,1486 @@
-[{"id":"a6bdc7b4.c70d08","type":"tab","label":"Przedpokój","disabled":false,"info":""},{"id":"8615421.9f48ac","type":"tab","label":"Lab","disabled":false,"info":""},{"id":"4f6b887e.ea0a08","type":"tab","label":"Bezpieczeństwo","disabled":false,"info":""},{"id":"a02e21a6.3530a","type":"server","name":"Home Assistant","legacy":false,"addon":false,"rejectUnauthorizedCerts":true,"ha_boolean":"y|yes|true|on|home|open","connectionDelay":true,"cacheJson":true},{"id":"1528d495.b7beab","type":"mqtt-broker","name":"Moquito","broker":"192.168.100.150","port":"1883","clientid":"","usetls":false,"compatmode":false,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"298c59d2.e12536","type":"serial-port","serialport":"/dev/ttyUSB0","serialbaud":"57600","databits":"8","parity":"none","stopbits":"1","waitfor":"","dtr":"none","rts":"none","cts":"none","dsr":"none","newline":"\\n","bin":"false","out":"char","addchar":"","responsetimeout":"10000"},{"id":"49c76303.a0a74c","type":"server-events","z":"8615421.9f48ac","name":"all Events","server":"a02e21a6.3530a","event_type":"","exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"x":100,"y":60,"wires":[["ff90b01d.d5869"]],"outputLabels":["bum"],"icon":"font-awesome/fa-home"},{"id":"ff90b01d.d5869","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":330,"y":60,"wires":[]},{"id":"eb2ba18a.3e22c","type":"mqtt in","z":"8615421.9f48ac","name":"","topic":"#","qos":"2","datatype":"auto","broker":"1528d495.b7beab","x":90,"y":160,"wires":[["d0eac4c8.47b048"]]},{"id":"d0eac4c8.47b048","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":310,"y":160,"wires":[]},{"id":"26b1876a.6bf248","type":"status","z":"8615421.9f48ac","name":"","scope":["49c76303.a0a74c"],"x":100,"y":260,"wires":[["d6d0c40a.e16e28"]]},{"id":"d6d0c40a.e16e28","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":310,"y":260,"wires":[]},{"id":"3e38c.82bffc748","type":"ping","z":"8615421.9f48ac","name":"","host":"www.wp.pl","timer":"20","x":100,"y":360,"wires":[["6de21a4a.59c644"]]},{"id":"6de21a4a.59c644","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":310,"y":360,"wires":[]},{"id":"2f90658c.8ab8ca","type":"api-current-state","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","version":1,"outputs":1,"halt_if":"","halt_if_type":"str","halt_if_compare":"is","override_topic":false,"entity_id":"sensor.airly2_temperature","state_type":"str","state_location":"payload","override_payload":"msg","entity_location":"data","override_data":"msg","blockInputOverrides":false,"x":540,"y":460,"wires":[["8fe3485.62b28b8"]]},{"id":"8904905e.6fd61","type":"server-state-changed","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"sensor.airly2_temperature","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"","halt_if_type":"str","halt_if_compare":"is","outputs":1,"output_only_on_state_change":true,"x":180,"y":520,"wires":[["2f90658c.8ab8ca","ca15edd6.d383"]]},{"id":"8fe3485.62b28b8","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":810,"y":460,"wires":[]},{"id":"232f86fe.f8ea3a","type":"inject","z":"8615421.9f48ac","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":180,"y":440,"wires":[["2f90658c.8ab8ca"]]},{"id":"ca15edd6.d383","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":810,"y":520,"wires":[]},{"id":"67030342.2e9c0c","type":"ha-entity","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"outputs":1,"entityType":"sensor","config":[{"property":"name","value":"node-red-sensor-test"},{"property":"device_class","value":"temperature"},{"property":"icon","value":""},{"property":"unit_of_measurement","value":""}],"state":"payload","stateType":"msg","attributes":[{"property":"Power","value":"$power(msg.payload, 2)","valueType":"jsonata"},{"property":"Text Value: ","value":"Taki sobie napis","valueType":"str"},{"property":"Update","value":"$now()","valueType":"jsonata"}],"resend":true,"outputLocation":"","outputLocationType":"none","inputOverride":"allow","x":910,"y":120,"wires":[["95ff97b7.a18a38"]]},{"id":"64feefa6.a6936","type":"api-current-state","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","version":1,"outputs":1,"halt_if":"","halt_if_type":"str","halt_if_compare":"is","override_topic":false,"entity_id":"sensor.airly2_temperature","state_type":"str","state_location":"payload","override_payload":"msg","entity_location":"data","override_data":"msg","blockInputOverrides":false,"x":860,"y":220,"wires":[["8ea679ff.e65cd8"]]},{"id":"8ea679ff.e65cd8","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":1140,"y":220,"wires":[]},{"id":"c115d900.e35ee8","type":"inject","z":"8615421.9f48ac","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":580,"y":220,"wires":[["64feefa6.a6936","2ff8ff30.1ff7e"]]},{"id":"2ff8ff30.1ff7e","type":"trigger-state","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityid":"binary_sensor.kitchen_motion","entityidfiltertype":"exact","debugenabled":false,"constraints":[],"constraintsmustmatch":"all","outputs":2,"customoutputs":[],"outputinitially":false,"state_type":"str","x":850,"y":300,"wires":[["1b0e7b2a.76ad15"],[]]},{"id":"1b0e7b2a.76ad15","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":1150,"y":300,"wires":[]},{"id":"95ff97b7.a18a38","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":1120,"y":120,"wires":[]},{"id":"3d7a1853.942f78","type":"random","z":"8615421.9f48ac","name":"","low":"1","high":"10","inte":"true","property":"payload","x":740,"y":120,"wires":[["67030342.2e9c0c"]]},{"id":"35396eb.e3e0192","type":"inject","z":"8615421.9f48ac","name":"","repeat":"15","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":550,"y":120,"wires":[["3d7a1853.942f78"]]},{"id":"8e7d300f.5adc7","type":"ha-entity","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"outputs":2,"entityType":"switch","config":[{"property":"name","value":"node-red-switch-test"},{"property":"device_class","value":""},{"property":"icon","value":""},{"property":"unit_of_measurement","value":""}],"state":"payload","stateType":"msg","attributes":[],"resend":true,"outputLocation":"","outputLocationType":"none","inputOverride":"allow","x":890,"y":40,"wires":[["4cb32361.93e17c"],["9de1f035.90a1e"]]},{"id":"4cb32361.93e17c","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","x":1170,"y":20,"wires":[]},{"id":"64360dae.01bc24","type":"inject","z":"8615421.9f48ac","name":"","repeat":"1","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":650,"y":40,"wires":[["8e7d300f.5adc7"]]},{"id":"9de1f035.90a1e","type":"debug","z":"8615421.9f48ac","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":1170,"y":60,"wires":[]},{"id":"b4637503.982648","type":"comment","z":"a6bdc7b4.c70d08","name":"Przedpokój","info":"","x":120,"y":40,"wires":[]},{"id":"192726bc.4f62f9","type":"server-state-changed","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.hall_wall_swtch_left_button","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":250,"y":80,"wires":[[],[]]},{"id":"3d34a721.a40fc8","type":"server-state-changed","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.hall_wall_swtch_right_button","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":250,"y":140,"wires":[[],[]]},{"id":"ae9d4715.6f0bc8","type":"api-call-service","z":"a6bdc7b4.c70d08","name":"Entrance lamp - toggle","server":"a02e21a6.3530a","version":1,"debugenabled":false,"service_domain":"light","service":"toggle","entityId":"light.entrance_lamp","data":"","dataType":"json","mergecontext":"","output_location":"","output_location_type":"none","mustacheAltTags":false,"x":800,"y":240,"wires":[[]]},{"id":"c1b8540.583e5b","type":"api-call-service","z":"a6bdc7b4.c70d08","name":"Corridor lamp - toggle","server":"a02e21a6.3530a","version":1,"debugenabled":false,"service_domain":"light","service":"toggle","entityId":"light.corridor_lamp","data":"","dataType":"json","mergecontext":"","output_location":"","output_location_type":"none","mustacheAltTags":false,"x":800,"y":180,"wires":[[]]},{"id":"3c42c13e.4c61de","type":"server-state-changed","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.entrance_wall_swtch_left_button","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":270,"y":260,"wires":[[],[]]},{"id":"4849f2f0.d913ac","type":"server-state-changed","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.entrance_wall_swtch_right_button","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":270,"y":320,"wires":[[],[]]},{"id":"b29d3d8d.79cb6","type":"server-state-changed","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.kitchen_wall_swtch_upper_left_button","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":280,"y":540,"wires":[["73c087f3.0e7118"],[]]},{"id":"2a301f1.ecc48e","type":"server-state-changed","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.kitchen_wall_swtch_upper_right_button","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":290,"y":600,"wires":[["3f54dbbb.248404"],[]]},{"id":"73c087f3.0e7118","type":"api-call-service","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"service_domain":"light","service":"toggle","entityId":"light.kitchen_ceiling_lamp","data":"","dataType":"json","mergecontext":"","output_location":"","output_location_type":"none","mustacheAltTags":false,"x":800,"y":520,"wires":[[]]},{"id":"3f54dbbb.248404","type":"api-call-service","z":"a6bdc7b4.c70d08","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"service_domain":"light","service":"toggle","entityId":"light.kitchen_side_lamp","data":"","dataType":"json","mergecontext":"","output_location":"","output_location_type":"none","mustacheAltTags":false,"x":800,"y":580,"wires":[[]]},{"id":"62f36166.f44a4","type":"api-current-state","z":"8615421.9f48ac","name":"","server":"a02e21a6.3530a","version":1,"outputs":1,"halt_if":"","halt_if_type":"str","halt_if_compare":"is","override_topic":false,"entity_id":"binary_sensor.lower_lock","state_type":"str","state_location":"payload","override_payload":"msg","entity_location":"data","override_data":"msg","blockInputOverrides":false,"x":920,"y":580,"wires":[["e625eb6c.cab348"]]},{"id":"f0a8dd90.696a1","type":"inject","z":"8615421.9f48ac","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":620,"y":580,"wires":[["62f36166.f44a4"]]},{"id":"e625eb6c.cab348","type":"debug","z":"8615421.9f48ac","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":1290,"y":580,"wires":[]},{"id":"ebc217ed.4a3c98","type":"api-call-service","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"service_domain":"notify","service":"telegram_krzysiek","entityId":"","data":"{\"message\": payload,\"title\": \"Ochrona\"}","dataType":"jsonata","mergecontext":"","output_location":"","output_location_type":"none","mustacheAltTags":false,"x":1440,"y":120,"wires":[[]]},{"id":"dd280821.81b888","type":"inject","z":"4f6b887e.ea0a08","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":240,"y":160,"wires":[["91a8ab34.5bf6b8"]]},{"id":"bc7ca915.70de88","type":"server-state-changed","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.lower_lock","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":220,"y":100,"wires":[["36518405.f1890c"],[]]},{"id":"743c73ae.2d834c","type":"inject","z":"4f6b887e.ea0a08","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":240,"y":60,"wires":[["36518405.f1890c"]]},{"id":"15d7c03.f44de4","type":"server-state-changed","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.upper_lock","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":220,"y":200,"wires":[["91a8ab34.5bf6b8"],[]]},{"id":"36518405.f1890c","type":"change","z":"4f6b887e.ea0a08","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"Dolny zamek został otwarty","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":620,"y":120,"wires":[["ee4ad620.431258"]]},{"id":"ee4ad620.431258","type":"ha-entity","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"outputs":2,"entityType":"switch","config":[{"property":"name","value":"secure"},{"property":"device_class","value":""},{"property":"icon","value":"mdi:shield-home"},{"property":"unit_of_measurement","value":""}],"state":"payload","stateType":"msg","attributes":[],"resend":true,"outputLocation":"","outputLocationType":"none","inputOverride":"allow","x":970,"y":180,"wires":[["ebc217ed.4a3c98","f4dde596.6606f8"],[]]},{"id":"91a8ab34.5bf6b8","type":"change","z":"4f6b887e.ea0a08","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"Górny zamek został otwarty","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":620,"y":200,"wires":[["ee4ad620.431258"]]},{"id":"a35f5eec.aa53b","type":"server-state-changed","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"exposeToHomeAssistant":false,"haConfig":[{"property":"name","value":""},{"property":"icon","value":""}],"entityidfilter":"binary_sensor.door","entityidfiltertype":"exact","outputinitially":false,"state_type":"str","haltifstate":"on","halt_if_type":"str","halt_if_compare":"is","outputs":2,"output_only_on_state_change":true,"x":200,"y":340,"wires":[["950efdef.02256"],[]]},{"id":"950efdef.02256","type":"change","z":"4f6b887e.ea0a08","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"Drzwii zostały otwarte","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":620,"y":320,"wires":[["ee4ad620.431258"]]},{"id":"51daa992.cd16d8","type":"api-current-state","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"outputs":1,"halt_if":"","halt_if_type":"str","halt_if_compare":"is","override_topic":false,"entity_id":"binary_sensor.door","state_type":"str","state_location":"payload","override_payload":"msg","entity_location":"data","override_data":"msg","blockInputOverrides":false,"x":420,"y":520,"wires":[["4397afa1.a5582"]]},{"id":"f675d5c0.2a7358","type":"inject","z":"4f6b887e.ea0a08","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":120,"y":520,"wires":[["51daa992.cd16d8"]]},{"id":"4397afa1.a5582","type":"debug","z":"4f6b887e.ea0a08","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":690,"y":520,"wires":[]},{"id":"b17433df.de1e5","type":"inject","z":"4f6b887e.ea0a08","name":"","repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":240,"y":280,"wires":[["950efdef.02256"]]},{"id":"f4dde596.6606f8","type":"api-call-service","z":"4f6b887e.ea0a08","name":"","server":"a02e21a6.3530a","version":1,"debugenabled":false,"service_domain":"notify","service":"telegram_asia","entityId":"","data":"{\"message\": payload,\"title\": \"Ochrona\"}","dataType":"jsonata","mergecontext":"","output_location":"","output_location_type":"none","mustacheAltTags":false,"x":1450,"y":220,"wires":[[]]}]
+[
+    {
+        "id": "a6bdc7b4.c70d08",
+        "type": "tab",
+        "label": "Przedpokój",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8615421.9f48ac",
+        "type": "tab",
+        "label": "Lab",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4f6b887e.ea0a08",
+        "type": "tab",
+        "label": "Bezpieczeństwo",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6314bd92.fa6dd4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a02e21a6.3530a",
+        "type": "server",
+        "name": "Home Assistant",
+        "legacy": false,
+        "addon": false,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true
+    },
+    {
+        "id": "1528d495.b7beab",
+        "type": "mqtt-broker",
+        "name": "Moquito",
+        "broker": "192.168.100.150",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "298c59d2.e12536",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "57600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "49c76303.a0a74c",
+        "type": "server-events",
+        "z": "8615421.9f48ac",
+        "name": "all Events",
+        "server": "a02e21a6.3530a",
+        "event_type": "",
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "ff90b01d.d5869"
+            ]
+        ],
+        "outputLabels": [
+            "bum"
+        ],
+        "icon": "font-awesome/fa-home"
+    },
+    {
+        "id": "ff90b01d.d5869",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 330,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "eb2ba18a.3e22c",
+        "type": "mqtt in",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1528d495.b7beab",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "d0eac4c8.47b048"
+            ]
+        ]
+    },
+    {
+        "id": "d0eac4c8.47b048",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "26b1876a.6bf248",
+        "type": "status",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "scope": [
+            "49c76303.a0a74c"
+        ],
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "d6d0c40a.e16e28"
+            ]
+        ]
+    },
+    {
+        "id": "d6d0c40a.e16e28",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3e38c.82bffc748",
+        "type": "ping",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "host": "www.wp.pl",
+        "timer": "20",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "6de21a4a.59c644"
+            ]
+        ]
+    },
+    {
+        "id": "6de21a4a.59c644",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2f90658c.8ab8ca",
+        "type": "api-current-state",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "sensor.airly2_temperature",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 540,
+        "y": 460,
+        "wires": [
+            [
+                "8fe3485.62b28b8"
+            ]
+        ]
+    },
+    {
+        "id": "8904905e.6fd61",
+        "type": "server-state-changed",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.airly2_temperature",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "2f90658c.8ab8ca",
+                "ca15edd6.d383"
+            ]
+        ]
+    },
+    {
+        "id": "8fe3485.62b28b8",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 810,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "232f86fe.f8ea3a",
+        "type": "inject",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "2f90658c.8ab8ca"
+            ]
+        ]
+    },
+    {
+        "id": "ca15edd6.d383",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 810,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "67030342.2e9c0c",
+        "type": "ha-entity",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "node-red-sensor-test"
+            },
+            {
+                "property": "device_class",
+                "value": "temperature"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "Power",
+                "value": "$power(msg.payload, 2)",
+                "valueType": "jsonata"
+            },
+            {
+                "property": "Text Value: ",
+                "value": "Taki sobie napis",
+                "valueType": "str"
+            },
+            {
+                "property": "Update",
+                "value": "$now()",
+                "valueType": "jsonata"
+            }
+        ],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "95ff97b7.a18a38"
+            ]
+        ]
+    },
+    {
+        "id": "64feefa6.a6936",
+        "type": "api-current-state",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "sensor.airly2_temperature",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 860,
+        "y": 220,
+        "wires": [
+            [
+                "8ea679ff.e65cd8"
+            ]
+        ]
+    },
+    {
+        "id": "8ea679ff.e65cd8",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1140,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c115d900.e35ee8",
+        "type": "inject",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "64feefa6.a6936",
+                "2ff8ff30.1ff7e"
+            ]
+        ]
+    },
+    {
+        "id": "2ff8ff30.1ff7e",
+        "type": "trigger-state",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "binary_sensor.kitchen_motion",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [],
+        "constraintsmustmatch": "all",
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "x": 850,
+        "y": 300,
+        "wires": [
+            [
+                "1b0e7b2a.76ad15"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1b0e7b2a.76ad15",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "95ff97b7.a18a38",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1120,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3d7a1853.942f78",
+        "type": "random",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "low": "1",
+        "high": "10",
+        "inte": "true",
+        "property": "payload",
+        "x": 740,
+        "y": 120,
+        "wires": [
+            [
+                "67030342.2e9c0c"
+            ]
+        ]
+    },
+    {
+        "id": "35396eb.e3e0192",
+        "type": "inject",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "repeat": "15",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "3d7a1853.942f78"
+            ]
+        ]
+    },
+    {
+        "id": "8e7d300f.5adc7",
+        "type": "ha-entity",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 2,
+        "entityType": "switch",
+        "config": [
+            {
+                "property": "name",
+                "value": "node-red-switch-test"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "x": 890,
+        "y": 40,
+        "wires": [
+            [
+                "4cb32361.93e17c"
+            ],
+            [
+                "9de1f035.90a1e"
+            ]
+        ]
+    },
+    {
+        "id": "4cb32361.93e17c",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1170,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "64360dae.01bc24",
+        "type": "inject",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 650,
+        "y": 40,
+        "wires": [
+            [
+                "8e7d300f.5adc7"
+            ]
+        ]
+    },
+    {
+        "id": "9de1f035.90a1e",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b4637503.982648",
+        "type": "comment",
+        "z": "a6bdc7b4.c70d08",
+        "name": "Przedpokój",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "192726bc.4f62f9",
+        "type": "server-state-changed",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.hall_wall_swtch_left_button",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3d34a721.a40fc8",
+        "type": "server-state-changed",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.hall_wall_swtch_right_button",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ae9d4715.6f0bc8",
+        "type": "api-call-service",
+        "z": "a6bdc7b4.c70d08",
+        "name": "Entrance lamp - toggle",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "toggle",
+        "entityId": "light.entrance_lamp",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1b8540.583e5b",
+        "type": "api-call-service",
+        "z": "a6bdc7b4.c70d08",
+        "name": "Corridor lamp - toggle",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "toggle",
+        "entityId": "light.corridor_lamp",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 800,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c42c13e.4c61de",
+        "type": "server-state-changed",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.entrance_wall_swtch_left_button",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4849f2f0.d913ac",
+        "type": "server-state-changed",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.entrance_wall_swtch_right_button",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b29d3d8d.79cb6",
+        "type": "server-state-changed",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.kitchen_wall_swtch_upper_left_button",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 280,
+        "y": 540,
+        "wires": [
+            [
+                "73c087f3.0e7118"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2a301f1.ecc48e",
+        "type": "server-state-changed",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.kitchen_wall_swtch_upper_right_button",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "3f54dbbb.248404"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "73c087f3.0e7118",
+        "type": "api-call-service",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "toggle",
+        "entityId": "light.kitchen_ceiling_lamp",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 800,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f54dbbb.248404",
+        "type": "api-call-service",
+        "z": "a6bdc7b4.c70d08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "toggle",
+        "entityId": "light.kitchen_side_lamp",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 800,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62f36166.f44a4",
+        "type": "api-current-state",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.lower_lock",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 920,
+        "y": 580,
+        "wires": [
+            [
+                "e625eb6c.cab348"
+            ]
+        ]
+    },
+    {
+        "id": "f0a8dd90.696a1",
+        "type": "inject",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 620,
+        "y": 580,
+        "wires": [
+            [
+                "62f36166.f44a4"
+            ]
+        ]
+    },
+    {
+        "id": "e625eb6c.cab348",
+        "type": "debug",
+        "z": "8615421.9f48ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1290,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ebc217ed.4a3c98",
+        "type": "api-call-service",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "telegram_krzysiek",
+        "entityId": "",
+        "data": "{\"message\": payload,\"title\": \"Ochrona\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1440,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd280821.81b888",
+        "type": "inject",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "91a8ab34.5bf6b8"
+            ]
+        ]
+    },
+    {
+        "id": "bc7ca915.70de88",
+        "type": "server-state-changed",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.lower_lock",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "36518405.f1890c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "743c73ae.2d834c",
+        "type": "inject",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 60,
+        "wires": [
+            [
+                "36518405.f1890c"
+            ]
+        ]
+    },
+    {
+        "id": "15d7c03.f44de4",
+        "type": "server-state-changed",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.upper_lock",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 220,
+        "y": 200,
+        "wires": [
+            [
+                "91a8ab34.5bf6b8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "36518405.f1890c",
+        "type": "change",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Dolny zamek został otwarty",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 120,
+        "wires": [
+            [
+                "ee4ad620.431258"
+            ]
+        ]
+    },
+    {
+        "id": "ee4ad620.431258",
+        "type": "ha-entity",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 2,
+        "entityType": "switch",
+        "config": [
+            {
+                "property": "name",
+                "value": "secure"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": "mdi:shield-home"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "x": 970,
+        "y": 180,
+        "wires": [
+            [
+                "ebc217ed.4a3c98",
+                "f4dde596.6606f8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "91a8ab34.5bf6b8",
+        "type": "change",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Górny zamek został otwarty",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 200,
+        "wires": [
+            [
+                "ee4ad620.431258"
+            ]
+        ]
+    },
+    {
+        "id": "a35f5eec.aa53b",
+        "type": "server-state-changed",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.door",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 200,
+        "y": 340,
+        "wires": [
+            [
+                "950efdef.02256"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "950efdef.02256",
+        "type": "change",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Drzwii zostały otwarte",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 320,
+        "wires": [
+            [
+                "ee4ad620.431258"
+            ]
+        ]
+    },
+    {
+        "id": "51daa992.cd16d8",
+        "type": "api-current-state",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.door",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "4397afa1.a5582"
+            ]
+        ]
+    },
+    {
+        "id": "f675d5c0.2a7358",
+        "type": "inject",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "51daa992.cd16d8"
+            ]
+        ]
+    },
+    {
+        "id": "4397afa1.a5582",
+        "type": "debug",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "b17433df.de1e5",
+        "type": "inject",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "950efdef.02256"
+            ]
+        ]
+    },
+    {
+        "id": "f4dde596.6606f8",
+        "type": "api-call-service",
+        "z": "4f6b887e.ea0a08",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "telegram_asia",
+        "entityId": "",
+        "data": "{\"message\": payload,\"title\": \"Ochrona\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1450,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d17124.e74a6f",
+        "type": "debug",
+        "z": "6314bd92.fa6dd4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4cb94b22.3d05f4",
+        "type": "inject",
+        "z": "6314bd92.fa6dd4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "24502606.de3a2a"
+            ]
+        ]
+    },
+    {
+        "id": "24502606.de3a2a",
+        "type": "api-current-state",
+        "z": "6314bd92.fa6dd4",
+        "name": "",
+        "server": "a02e21a6.3530a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "light.bedroom_color_lamp",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "8d17124.e74a6f"
+            ]
+        ]
+    }
+]
